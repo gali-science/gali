@@ -1,0 +1,1 @@
+ALTER TABLE "projects" ALTER COLUMN "paper_path" DROP NOT NULL;

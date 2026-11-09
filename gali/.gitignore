@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.local
+*.local
+.DS_Store
+.gali-data/
+docker-spike/
+ui/test-results/
+drizzle/meta/_journal.json.lock

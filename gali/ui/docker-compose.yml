@@ -1,0 +1,16 @@
+services:
+  # Control-plane Postgres for local dev (accounts + sandbox assignment).
+  # Production uses Railway Postgres via DATABASE_URL instead of this.
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: gali
+      POSTGRES_PASSWORD: gali
+      POSTGRES_DB: gali_control
+    ports:
+      - "5432:5432"
+    volumes:
+      - gali_control_pgdata:/var/lib/postgresql/data
+
+volumes:
+  gali_control_pgdata:

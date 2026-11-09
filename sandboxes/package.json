@@ -1,0 +1,21 @@
+{
+  "name": "gali-sandboxes",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prove-cycle": "tsx prove-cycle.ts",
+    "publish-vercel-image": "tsx publish-vercel-image.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@vercel/sandbox": "^3.9.1"
+  },
+  "overrides": {
+    "undici@7": "^7.30.1"
+  }
+}

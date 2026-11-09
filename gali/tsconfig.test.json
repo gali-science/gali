@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.node.json",
+  "include": [
+    "shared/**/*.ts",
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "ui/api/_lib/memory-prompt.ts",
+    "vitest.config.ts"
+  ]
+}

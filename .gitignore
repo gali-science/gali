@@ -1,0 +1,8 @@
+.env*
+!.env.example
+!/gali/ui/.env.production
+.DS_Store
+/.pnpm-store/
+/.cursor/
+/sandboxes/debug/
+node_modules/

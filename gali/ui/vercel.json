@@ -1,0 +1,104 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm db:migrate && pnpm sandbox-release:publish && pnpm build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "installCommand": "pnpm install",
+  "proxy": {
+    "entrypoint": "middleware.ts"
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
+        },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/api/gali/(.*)",
+      "destination": "/api/gali-proxy?galiPath=$1"
+    },
+    {
+      "source": "/api/model/(.*)",
+      "destination": "/api/model-gateway?gatewayPath=$1"
+    },
+    {
+      "source": "/api/health",
+      "destination": "/api/account?op=health"
+    },
+    {
+      "source": "/api/me",
+      "destination": "/api/account?op=me"
+    },
+    {
+      "source": "/api/memory",
+      "destination": "/api/account?op=memory"
+    },
+    {
+      "source": "/api/usage",
+      "destination": "/api/account?op=usage"
+    },
+    {
+      "source": "/api/consent",
+      "destination": "/api/account?op=consent"
+    },
+    {
+      "source": "/api/client-error",
+      "destination": "/api/account?op=client-error"
+    },
+    {
+      "source": "/api/client-event",
+      "destination": "/api/account?op=client-event"
+    },
+    {
+      "source": "/api/try/session",
+      "destination": "/api/try?op=session"
+    },
+    {
+      "source": "/api/try/answer",
+      "destination": "/api/try?op=answer"
+    },
+    {
+      "source": "/api/try/extend",
+      "destination": "/api/try?op=extend"
+    },
+    {
+      "source": "/api/try/end",
+      "destination": "/api/try?op=end"
+    },
+    {
+      "source": "/api/try/title",
+      "destination": "/api/try?op=title"
+    },
+    {
+      "source": "/api/sandbox/ensure",
+      "destination": "/api/sandbox?op=ensure"
+    },
+    {
+      "source": "/api/sandbox/sleep",
+      "destination": "/api/sandbox?op=sleep"
+    }
+  ],
+  "functions": {
+    "api/gali-proxy.ts": {
+      "maxDuration": 300
+    },
+    "api/sandbox.ts": {
+      "maxDuration": 300
+    },
+    "api/model-gateway.ts": {
+      "maxDuration": 300
+    }
+  }
+}

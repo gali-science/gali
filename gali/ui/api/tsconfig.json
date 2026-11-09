@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2023", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "types": ["node"]
+  },
+  "include": ["**/*.ts", "../../shared/observability/**/*.ts", "../../shared/config.ts", "../../shared/sandbox-health.ts", "../../shared/domain/paper-title.ts", "../../shared/domain/name-pronunciation.ts"]
+}

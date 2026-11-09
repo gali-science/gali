@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792034268182,
+      "tag": "0000_review_projects",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792088154197,
+      "tag": "0001_paper_title",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792550170639,
+      "tag": "0002_optional_paper",
+      "breakpoints": true
+    }
+  ]
+}
